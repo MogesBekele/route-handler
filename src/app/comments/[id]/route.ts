@@ -18,7 +18,7 @@ export async function GET(
 
 //patch
 
-export async function PATCH(
+export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
 ) {
