@@ -10,15 +10,12 @@ export async function POST(request: Request) {
     id: comments.length + 1,
     text: comment.text,
   };
-  comments.push(newComment);
+ comments.push(newComment);
   // Simulate a delay
-  return new Response(
-    JSON.stringify(newComment),
-    {
-      status: 201,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  return new Response(JSON.stringify(newComment), {
+    status: 201,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
