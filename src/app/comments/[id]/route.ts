@@ -6,7 +6,7 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  const comment = comments.find((comments) => comments.id === id);
+const comment = comments.find((comment)=>comment.id === id)
 
   if (!comment) {
     return new Response("Comment not found", {
