@@ -45,7 +45,7 @@ export async function DELETE(
 ) {
   const { params } = await context;
   const { id } = params;
-  const commentIndex = comments.findIndex((comment) => comment.id === (id));
+  const commentIndex = comments.findIndex((comment) => comment.id === id);
   if (commentIndex === -1) {
     return new Response("Comment not found", { status: 404 });
   }
