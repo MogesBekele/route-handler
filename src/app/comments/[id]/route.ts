@@ -36,3 +36,17 @@ export async function PUT(
 
   return Response.json(comment);
 }
+
+//delete
+
+export async function DELETE(
+  _request: Request,
+  { params }: { params: { id: string } }
+) {
+  const { id } = await params;
+  const commentIndex = comments.findIndex((comment) => comment.id === id);
+ const deletedComment = comments[commentIndex];
+comments.splice(commentIndex, 1)
+
+return Response.json(deletedComment);
+}
