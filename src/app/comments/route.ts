@@ -11,6 +11,7 @@ export async function POST(request: Request) {
     text: comment.text,
   };
   comments.push(newComment);
+  // Simulate a delay
   return new Response(
     JSON.stringify(newComment),
     {
