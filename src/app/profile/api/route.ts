@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
   const theme2 = cookieStore.set("result","33");
 
   console.log(theme2);
+  console.log(cookieStore.get("result"));
 
   // const requestHearers = new Headers(request.headers);
   // console.log(requestHearers.get('Authorization'));
