@@ -1,4 +1,4 @@
-
+export const dynamic = 'force-static'; // This will make the route static
 
 export async function GET(){
 const categories=[
