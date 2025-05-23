@@ -8,6 +8,6 @@ export function middleware(request: NextRequest){
   return NextResponse.redirect(new URL('hello', request.nextUrl))
 }
 }
-// export const config = {
-//   matcher: "/profile"
-// }
+export const config = {
+  matcher: "/profile"
+}
