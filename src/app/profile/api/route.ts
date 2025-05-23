@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   // const theme = request.cookies.get("theme");
   // console.log(theme);
   const cookieStore = await cookies();
-  const theme2 = cookieStore.get("theme");
+  const theme2 = cookieStore.set("result","33");
 
   console.log(theme2);
 
