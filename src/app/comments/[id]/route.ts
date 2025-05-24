@@ -36,7 +36,6 @@ export async function PUT(
 }
 
 //delete
-
 export async function DELETE(
   _request: Request,
   context: { params: { id: string } }
