@@ -16,7 +16,7 @@ export async function GET(
   return Response.json(comment);
 }
 
-//patch
+
 
 export async function PUT(
   request: Request,
