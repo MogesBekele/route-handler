@@ -3,9 +3,10 @@ import { comments } from "./data";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
-  const query = searchParams.get('query')
-  const filteredComments = query? comments.filter((comment)=>comment.text.includes(query))
-  : comments;
+  const query = searchParams.get("query");
+  const filteredComments = query
+    ? comments.filter((comment) => comment.text.includes(query))
+    : comments;
   return Response.json(filteredComments);
 }
 
@@ -15,7 +16,7 @@ export async function POST(request: Request) {
     id: comments.length + 1,
     text: comment.text,
   };
- //comments.push(newComment);
+  //comments.push(newComment);
   // Simulate a delay
   return new Response(JSON.stringify(newComment), {
     status: 201,
