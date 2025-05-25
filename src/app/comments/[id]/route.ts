@@ -34,7 +34,6 @@ export async function PUT(
 
   return Response.json(comment);
 }
-
 //delete
 export async function DELETE(
   _request: Request,
