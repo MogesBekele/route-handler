@@ -1,7 +1,7 @@
 export default async function FfetchDataPage() {
   // Simulate fetching data from an API or database
   const data = await fetch("https://jsonplaceholder.typicode.com/posts")
-    .then((response) => response.json())
+    .then((data) => data.json())
     .catch((error) => {
       console.error("Error fetching data:", error);
       return [];
