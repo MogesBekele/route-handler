@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-export default async function FfetchDataPage() {
+export default async function FetchDataPage() {
   const [data, setData] = useState([])
   
   // Simulate fetching data from an API or database
