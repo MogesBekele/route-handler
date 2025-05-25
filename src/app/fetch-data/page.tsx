@@ -14,7 +14,9 @@ export default async function FetchDataPage() {
             key={item.id}
             className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-blue-900 hover:bg-blue-100 transition-colors"
           >
-            <span className="font-semibold text-blue-700 mr-2">#{item.id}:</span>
+            <span className="font-semibold text-blue-700 mr-2">
+              #{item.id}:
+            </span>
             {item.title}
           </li>
         ))}
