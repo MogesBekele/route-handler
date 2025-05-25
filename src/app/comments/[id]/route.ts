@@ -36,9 +36,8 @@ export async function PUT(
 }
 export async function DELETE(
   _request: Request,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { params } = await context;
   const { id } = params;
   const commentIndex = comments.findIndex((comment) => comment.id === id);
   if (commentIndex === -1) {
