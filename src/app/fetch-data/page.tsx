@@ -4,14 +4,17 @@ export default async function FetchDataPage() {
   const data = allData.slice(0, 10);
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
-      <h1 className="text-2xl font-bold mb-4 text-blue-700">Fetched Data</h1>
-      <ul className="space-y-2">
+    <div className="max-w-2xl mx-auto mt-12 p-8 bg-white rounded-xl shadow-lg">
+      <h1 className="text-3xl font-extrabold mb-6 text-blue-800 text-center">
+        Fetched Posts
+      </h1>
+      <ul className="space-y-4">
         {data.map((item: { id: number; title: string }) => (
           <li
             key={item.id}
-            className="p-3 bg-blue-50 rounded border border-blue-100 text-blue-900"
+            className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-blue-900 hover:bg-blue-100 transition-colors"
           >
+            <span className="font-semibold text-blue-700 mr-2">#{item.id}:</span>
             {item.title}
           </li>
         ))}
