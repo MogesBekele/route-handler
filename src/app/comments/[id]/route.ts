@@ -14,6 +14,7 @@ export async function GET(
   }
   return Response.json(comment);
 }
+
 export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
