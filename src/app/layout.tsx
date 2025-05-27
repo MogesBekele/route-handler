@@ -13,9 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-type Theme={
-  
-}
+type Theme = {
+  colors: {
+    primary: string;
+    secondary: string;
+  };
+};
 
 export const metadata: Metadata = {
   title: "Create Next App",
