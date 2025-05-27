@@ -12,7 +12,6 @@ const defaultTheme: Theme = {
     secondary: "#1a1a1a",
   },
 };
-
 const ThemeContext = createContext<Theme>(defaultTheme);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
