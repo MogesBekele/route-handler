@@ -12,16 +12,15 @@ const defaultTheme: Theme = {
     secondary: "#1a1a1a",
   },
 };
-const ThemeContext = createContext<Theme>(defaultTheme);
 
+const ThemeContext = createContext<Theme>(defaultTheme);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeContext.Provider value={defaultTheme}>
       {children}
     </ThemeContext.Provider>
   );
-}
-
+};
 export const useTheme = () => {
   return useContext(ThemeContext);
 };
