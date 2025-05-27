@@ -1,25 +1,39 @@
 "use client";
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+
 type Theme = {
   colors: {
     primary: string;
     secondary: string;
   };
 };
+
+type ThemeContextType = {
+  theme: Theme;
+  name: string;
+  setName: (name: string) => void;
+};
+
 const defaultTheme: Theme = {
   colors: {
     primary: "#0070f3",
     secondary: "#1a1a1a",
   },
 };
-const ThemeContext = createContext<Theme>(defaultTheme);
+
+const ThemeContext = createContext<ThemeContextType>({
+  theme: defaultTheme,
+  name: "John Doe",
+  setName: () => {},
+});
+
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [name, setName] = useState("John Doe");
   return (
-    <ThemeContext.Provider value={defaultTheme}>
+    <ThemeContext.Provider value={{ theme: defaultTheme, name, setName }}>
       {children}
     </ThemeContext.Provider>
   );
 };
-export const useTheme = () => {
-  return useContext(ThemeContext);
-};
+
+export const useTheme = () => useContext(ThemeContext);
