@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { ServerComponentTwo } from './server-component-two';
 
 export const ServerComponentOne = () => {
   const filePath = path.join(process.cwd(), 'route-handler', 'src', 'components', 'server-component-one.tsx');
@@ -13,6 +14,7 @@ export const ServerComponentOne = () => {
   return (
     <>
       <h1>server component one</h1>
+        <ServerComponentTwo />
    
     </>
   );
