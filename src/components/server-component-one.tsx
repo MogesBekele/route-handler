@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { ServerComponentTwo } from "./server-component-two";
+
+import { ClientComponentOne } from "./client-component-one";
 
 export const ServerComponentOne = () => {
   const filePath = path.join(
@@ -20,7 +21,7 @@ export const ServerComponentOne = () => {
   return (
     <>
       <h1>server component one</h1>
-      <ServerComponentTwo />
+     <ClientComponentOne/>
     </>
   );
 };
