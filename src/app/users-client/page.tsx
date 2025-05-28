@@ -1,18 +1,31 @@
-type User ={
+"use client";
+import { useEffect, useState } from "react";
+
+type User = {
   id: number;
   name: string;
   email: string;
   username: string;
   phone: string;
+};
 
-}
+export default function UsersClient() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-export default async function UsersClient() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  if (!res.ok) {
-    throw new Error("Failed to fetch users");
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch users");
+        return res.json();
+      })
+      .then((data) => setUsers(data))
+      .catch((err) => setError(err.message));
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
-  const users: User[] = await res.json();
 
   return (
     <div>
