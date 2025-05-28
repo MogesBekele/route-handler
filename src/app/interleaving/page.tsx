@@ -1,3 +1,5 @@
+import { ServerComponentOne } from "@/components/server-component-one";
+
 export default function InterleavingPage() {
   return (
     <div>
@@ -5,7 +7,7 @@ export default function InterleavingPage() {
       <p>This page demonstrates interleaving of server and client components.</p>
       <div>
         <h2>Server Component One</h2>
-        {/* ServerComponentOne would be imported and used here */}
+       <ServerComponentOne/>
       </div>
       <div>
         <h2>Client Component One</h2>
