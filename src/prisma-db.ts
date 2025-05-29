@@ -49,3 +49,26 @@ export const createProduct = async (data: { title: string; price: number; descri
   });
   return product;
 }
+
+// create a function to update a product
+export const updateProduct = async (id: number, data: { title?: string; price?: number; description?: string }) => {
+  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
+  const product = await prisma.product.update({
+    where: {
+      id: id,
+    },
+    data: data,
+  });
+  return product;
+}
+
+// create a function to delete a product
+export const deleteProduct = async (id: number) => {
+  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
+  const product = await prisma.product.delete({
+    where: {
+      id: id,
+    },
+  });
+  return product;
+}
