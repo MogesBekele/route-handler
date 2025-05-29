@@ -2,7 +2,8 @@ import { Submit } from "@/components/submit";
 import { getProductById, updateProduct } from "@/prisma-db";
 import { redirect } from "next/navigation";
 
-export default async function EditProductPage({ params }: { params: { id: string } }) {
+export default async function EditProductPage(context: { params: { id: string } }) {
+  const { params } = await context;
   const { id } = params;
   const product = await getProductById(parseInt(id));
 
