@@ -40,3 +40,12 @@ export const getProductById = async (id: number) => {
   });
   return product;
 }
+
+// create a function to create a product
+export const createProduct = async (data: { title: string; price: number; description: string }) => {
+  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
+  const product = await prisma.product.create({
+    data: data,
+  });
+  return product;
+}
