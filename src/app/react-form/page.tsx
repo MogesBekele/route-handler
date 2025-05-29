@@ -7,7 +7,7 @@ export default function CreateProduct(){
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const route = useRouter()
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function CreateProduct(){
         body: JSON.stringify({ title, price, description }),
       });
       if (response.ok) {
-        route.push("/product-db");
+        router.push("/product-db");
       } else {
         console.error("Failed to create product");
       }
