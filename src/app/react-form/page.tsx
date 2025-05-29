@@ -13,7 +13,7 @@ export default function CreateProduct(){
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("/api/products", {
+      const response = await fetch("/react-form/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
