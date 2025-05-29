@@ -1,5 +1,5 @@
 import {PrismaClient} from '@prisma/client';
-import { resolve } from 'path';
+
 
 const prisma  = new PrismaClient()
 
