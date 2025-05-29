@@ -1,75 +1,101 @@
-import { PrismaClient } from './generated/prisma';
+import { PrismaClient } from "./generated/prisma";
 
+// Prevent multiple instances in development (optional, but good practice)
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+export const prisma =
+  globalForPrisma.prisma || new PrismaClient();
 
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
-const prisma  = new PrismaClient()
+// Utility delay function
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const seedProducts = async ()=>{
+// Seed products if table is empty
+const seedProducts = async () => {
   const count = await prisma.product.count();
-
-  if(count ===0){
-
+  if (count === 0) {
     await prisma.product.createMany({
       data: [
-        { title: 'Product 2', price: 200, description: 'Description for product 2' },
-        { title: 'Product 1', price: 100, description: 'Description for product 1' },
-        { title: 'Product 3', price: 300, description: 'Description for product 3' },
+        {
+          title: "Product 2",
+          price: 200,
+          description: "Description for product 2",
+        },
+        {
+          title: "Product 1",
+          price: 100,
+          description: "Description for product 1",
+        },
+        {
+          title: "Product 3",
+          price: 300,
+          description: "Description for product 3",
+        },
       ],
     });
-    console.log('Products seeded successfully');
+    console.log("Products seeded successfully");
   }
-  
+};
+seedProducts();
 
-}
-
-seedProducts()
-
-// create a function to get all products
+// Get all products
 export const getProducts = async () => {
-  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
-  const products = await prisma.product.findMany();
-  return products;
-}
+  await delay(2000);
+  try {
+    return await prisma.product.findMany();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
+};
 
-// create a function to get a product by id
+// Get product by ID
 export const getProductById = async (id: number) => {
-  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
-  const product = await prisma.product.findUnique({
-    where: {
-      id: id,
-    },
-  });
-  return product;
-}
+  await delay(2000);
+  try {
+    return await prisma.product.findUnique({ where: { id } });
+  } catch (error) {
+    console.error("Error fetching product by ID:", error);
+    return null;
+  }
+};
 
-// create a function to create a product
-export const createProduct = async (data: { title: string; price: number; description: string }) => {
-  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
-  const product = await prisma.product.create({
-    data: data,
-  });
-  return product;
-}
+// Create a product
+export const createProduct = async (data: {
+  title: string;
+  price: number;
+  description: string;
+}) => {
+  await delay(2000);
+  try {
+    return await prisma.product.create({ data });
+  } catch (error) {
+    console.error("Error creating product:", error);
+    return null;
+  }
+};
 
-// create a function to update a product
-export const updateProduct = async (id: number, data: { title?: string; price?: number; description?: string }) => {
-  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
-  const product = await prisma.product.update({
-    where: {
-      id: id,
-    },
-    data: data,
-  });
-  return product;
-}
+// Update a product
+export const updateProduct = async (
+  id: number,
+  data: { title?: string; price?: number; description?: string }
+) => {
+  await delay(2000);
+  try {
+    return await prisma.product.update({ where: { id }, data });
+  } catch (error) {
+    console.error("Error updating product:", error);
+    return null;
+  }
+};
 
-// create a function to delete a product
+// Delete a product
 export const deleteProduct = async (id: number) => {
-  await new Promise((resolve)=>{setTimeout(resolve, 2000)});
-  const product = await prisma.product.delete({
-    where: {
-      id: id,
-    },
-  });
-  return product;
-}
+  await delay(2000);
+  try {
+    return await prisma.product.delete({ where: { id } });
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    return null;
+  }
+};
