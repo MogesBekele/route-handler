@@ -1,11 +1,6 @@
 import { PrismaClient } from "./generated/prisma";
 
-// Prevent multiple instances in development (optional, but good practice)
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
-export const prisma =
-  globalForPrisma.prisma || new PrismaClient();
-
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+const prisma = new PrismaClient();
 
 // Utility delay function
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
