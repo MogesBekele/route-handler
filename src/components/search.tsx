@@ -1,7 +1,8 @@
+import Form from 'next/form';
 export const Search = () => {
   return(
 
-    <form action="/product-db">
+    <Form action="/product-db">
       <div className="bg-gray-50 min-h-screen flex items-center justify-center text-black">
         <div className="max-w-2xl mx-auto mt-12 p-8 bg-white rounded-xl shadow-lg">
           <h1 className="text-3xl font-extrabold mb-6 text-blue-800 text-center">
@@ -24,11 +25,11 @@ export const Search = () => {
               type="submit"
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
-              Search
+             Submit
             </button>
           </div>
         </div>
       </div>
-    </form>
+    </Form>
   )
 }
