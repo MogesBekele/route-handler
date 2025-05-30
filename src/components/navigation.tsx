@@ -1,4 +1,4 @@
-import { SignInButton } from "@clerk/nextjs";
+import { SignInButton, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export const Navigation = () => {
@@ -8,17 +8,10 @@ export const Navigation = () => {
         <h1 className="text-2xl font-bold tracking-tight">Next.js App</h1>
         <div className="flex items-center gap-4">
           {/* Sign In Button */}
-          <SignInButton mode="modal">
-            <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors">
-              Sign In
-            </button>
-          </SignInButton>
-
+          <SignInButton mode="modal" />
           {/* Sign Out Button */}
-          <Link href="/user-profile">Profile</Link>
-         
-         
-        
+         <Link href="/user-profile">Profile</Link>
+          <SignOutButton />
         </div>
       </div>
     </nav>
