@@ -7,9 +7,10 @@ type Product = {
   description: string;
 };
 
-export default async function ProductDB() {
+export default async function ProductDB({searchParams}:{searchParams:Promise<{query?:string}>}) {
+  const { query } = await searchParams;
   await new Promise((resolve) => { setTimeout(resolve, 2000); });
-  const products: Product[] = await getProducts();
+  const products: Product[] = await getProducts(query);
 
   async function handleDelete(formData: FormData) {
     "use server";
