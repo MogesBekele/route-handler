@@ -1,7 +1,7 @@
 import Form from 'next/form';
 export const Search = () => {
   return (
-    <form action="/product-db" className="w-full flex gap-2">
+    <Form action="/product-db" className="w-full flex gap-2">
       <input
         type="text"
         name="query"
@@ -15,6 +15,6 @@ export const Search = () => {
       >
         Search
       </button>
-    </form>
+    </Form>
   );
 };
