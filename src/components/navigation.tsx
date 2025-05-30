@@ -15,7 +15,7 @@ export const Navigation = () => {
           {/* Show when signed out */}
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors">
+              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors hover:cursor-pointer">
                 Sign In
               </button>
             </SignInButton>
@@ -29,7 +29,7 @@ export const Navigation = () => {
               Profile
             </Link>
             <SignOutButton>
-              <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium transition-colors">
+              <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium transition-colors hover:cursor-pointer">
                 Sign Out
               </button>
             </SignOutButton>
