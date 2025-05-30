@@ -1,23 +1,25 @@
-import { SignInButton } from "@clerk/nextjs"
+import { SignInButton, SignOutButton } from "@clerk/nextjs";
 
 export const Navigation = () => {
-  return(
-    <nav>
-      <div>
-        <div>
-          <div>
-            <h1>Next js app</h1>
-          </div>
-          <div>
-            {/*sigh in button */}
-            <SignInButton mode="modal"/>
-
-
-          </div>
+  return (
+    <nav className="bg-blue-800 text-white px-6 py-4 shadow-md">
+      <div className="max-w-5xl mx-auto flex items-center justify-between">
+        <h1 className="text-2xl font-bold tracking-tight">Next.js App</h1>
+        <div className="flex items-center gap-4">
+          {/* Sign In Button */}
+          <SignInButton mode="modal">
+            <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors">
+              Sign In
+            </button>
+          </SignInButton>
+          {/* Sign Out Button */}
+          <SignOutButton>
+            <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium transition-colors">
+              Sign Out
+            </button>
+          </SignOutButton>
         </div>
       </div>
-   
     </nav>
-    
-  )
-}
+  );
+};
