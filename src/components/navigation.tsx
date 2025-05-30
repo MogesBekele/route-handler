@@ -1,4 +1,5 @@
-import { SignInButton,  UserButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 export const Navigation = () => {
   return (
@@ -12,8 +13,12 @@ export const Navigation = () => {
               Sign In
             </button>
           </SignInButton>
+
           {/* Sign Out Button */}
-         <UserButton/>
+          <Link href="/user-profile">Profile</Link>
+         
+         
+        
         </div>
       </div>
     </nav>
