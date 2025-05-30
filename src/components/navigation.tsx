@@ -1,4 +1,4 @@
-import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignInButton,  UserButton } from "@clerk/nextjs";
 
 export const Navigation = () => {
   return (
@@ -13,11 +13,7 @@ export const Navigation = () => {
             </button>
           </SignInButton>
           {/* Sign Out Button */}
-          <SignOutButton>
-            <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium transition-colors">
-              Sign Out
-            </button>
-          </SignOutButton>
+         <UserButton/>
         </div>
       </div>
     </nav>
