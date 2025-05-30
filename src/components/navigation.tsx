@@ -14,12 +14,25 @@ export const Navigation = () => {
         <div className="flex items-center gap-4">
           {/* Show when signed out */}
           <SignedOut>
-            <SignInButton mode="modal" />
+            <SignInButton mode="modal">
+              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors">
+                Sign In
+              </button>
+            </SignInButton>
           </SignedOut>
           {/* Show when signed in */}
           <SignedIn>
-            <Link href="/user-profile">Profile</Link>
-            <SignOutButton />
+            <Link
+              href="/user-profile"
+              className="hover:underline text-white font-medium px-3 py-1 rounded transition-colors hover:bg-blue-700"
+            >
+              Profile
+            </Link>
+            <SignOutButton>
+              <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium transition-colors">
+                Sign Out
+              </button>
+            </SignOutButton>
           </SignedIn>
         </div>
       </div>
