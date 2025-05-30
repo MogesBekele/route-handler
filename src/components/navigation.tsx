@@ -1,3 +1,5 @@
+import { SignInButton } from "@clerk/nextjs"
+
 export const Navigation = () => {
   return(
     <nav>
@@ -8,6 +10,9 @@ export const Navigation = () => {
           </div>
           <div>
             {/*sigh in button */}
+            <SignInButton mode="modal"/>
+
+
           </div>
         </div>
       </div>
