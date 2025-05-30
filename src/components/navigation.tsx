@@ -1,4 +1,9 @@
-import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
 import Link from "next/link";
 
 export const Navigation = () => {
@@ -7,11 +12,15 @@ export const Navigation = () => {
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <h1 className="text-2xl font-bold tracking-tight">Next.js App</h1>
         <div className="flex items-center gap-4">
-          {/* Sign In Button */}
-          <SignInButton mode="modal" />
-          {/* Sign Out Button */}
-         <Link href="/user-profile">Profile</Link>
-          <SignOutButton />
+          {/* Show when signed out */}
+          <SignedOut>
+            <SignInButton mode="modal" />
+          </SignedOut>
+          {/* Show when signed in */}
+          <SignedIn>
+            <Link href="/user-profile">Profile</Link>
+            <SignOutButton />
+          </SignedIn>
         </div>
       </div>
     </nav>
